@@ -32,7 +32,7 @@ Others: Python random, Django models & forms
 
 📂 Project Structure
 
-email_otp_verification/
+OTP_project/
 ├── emailotp/
 │   ├── models.py
 │   ├── admin.py
@@ -93,32 +93,6 @@ EMAIL_HOST_PASSWORD = 'your-app-password'
 
 
 For development, use:
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-✅ Sample OTP Verification Logic
-python
-Copy
-Edit
-def verify_otp(user, input_otp):
-    otp_entry = EmailOTP.objects.filter(user=user, is_verified=False).latest('created_at')
-    if otp_entry.otp == input_otp and not otp_entry.is_expired():
-        otp_entry.is_verified = True
-        otp_entry.save()
-        return True
-    return False
-🧪 Testing
-You can test OTPs directly via:
-
-Email Console: Shows email in your terminal.
-
-Production SMTP: Use Gmail or SendGrid with real email delivery.
-
-📌 To-Do / Enhancements
- Add rate-limiting on OTP retries
-
- Add Resend OTP button with cooldown
-
- Add front-end styling with Bootstrap or Tailwind
-
- Add user registration & login integration
+   
 
