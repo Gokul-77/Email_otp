@@ -16,12 +16,6 @@ STATUS_OTP_TIMEOUT = "STATUS_OTP_TIMEOUT"
 
 class EmailOTPModule:
 
-    def start(self):
-        print("OTP Module started")
-
-    def close(self):
-        print("OTP Module closed")
-
     def generate_OTP_email(self, user_email):
         try:
             if not re.match(EMAIL_REGEX, user_email):

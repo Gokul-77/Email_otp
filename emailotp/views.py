@@ -13,8 +13,5 @@ def send_otp(request):
 def verify_otp(request):
     email = request.data.get('email')
     otp = request.data.get('otp')
-    
-    # ✅ Don't pass 'request', pass email and otp only!
     status = otp_module.check_otp_http(email, otp)
-    
     return Response({'status': status})
